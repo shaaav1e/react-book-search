@@ -1,13 +1,13 @@
 import React from "react";
 import BookCard from "./BookCard";
-const BookList = ({ books }) => {
+const BookList = ({ books, onSeeMore }) => {
   return (
     <div className="container w-[80%] mx-auto grid grid-cols-1 gap-6 mt-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       {books.map((book) => (
         // <div className="container w-[80%] mx-auto" key={book.id}>
         // <p>{book.volumeInfo.title}</p>
         // </div>
-        <BookCard key={book.id} book={book} />
+        <BookCard key={book.id} book={book} onSeeMore={onSeeMore} />
       ))}
     </div>
   );
