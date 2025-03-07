@@ -5,6 +5,7 @@ import BookCard from "./components/BookCard";
 import fetchBooks from "./services/api-client";
 import useBooks from "./services/useBooks";
 import BookDetail from "./components/BookDetail";
+import Footer from "./components/Footer";
 const App = () => {
   const [selectedBook, setSelectedBook] = useState(null);
   const { books, loading, setSearchTerm } = useBooks("Python");
@@ -33,6 +34,7 @@ const App = () => {
         <BookDetail book={selectedBook} onClose={handleCloseModal} />
       )}
       {/* if selected book is null or undefined, it is false - This is conditional rendering - instead of using ternary*/}
+      <Footer />
     </div>
   );
 };
