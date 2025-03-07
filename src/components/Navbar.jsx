@@ -3,8 +3,11 @@ import SearchBar from "./SearchBar";
 const Navbar = ({ onSearch }) => {
   return (
     <>
-      <div className="flex justify-between container w-[80%] mx-auto items-center px-4 py-6  text-white mt-6  bg-gray-800 shadow-lg shadow-black/30font-bold text-xl  rounded-full">
-        <h1 className="text-3xl text-emerald-50 font-bold">Books.</h1>
+      <div className="sm:flex sm:justify-between sm:container sm:w-[80%] sm:mx-auto sm:items-center sm:px-4 sm:py-6 sm:text-white sm:mt-6 sm:bg-gray-800 sm:shadow-lg sm:shadow-black/30 sm:font-bold sm:text-xl sm:rounded-full">
+        {" "}
+        <h1 className="sm:text-3xl sm:text-emerald-50 sm:font-bold hidden sm:block">
+          Books.
+        </h1>
         {/* <ul className="flex justify-center items-center gap-6">
           <li>Home</li>
           <li>About</li>

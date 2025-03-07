@@ -4,6 +4,7 @@ import BookList from "./components/BookList";
 import BookCard from "./components/BookCard";
 import fetchBooks from "./services/api-client";
 import useBooks from "./services/useBooks";
+import BookDetail from "./components/BookDetail";
 const App = () => {
   const [selectedBook, setSelectedBook] = useState(null);
   const { books, loading, setSearchTerm } = useBooks("Python");
@@ -12,7 +13,10 @@ const App = () => {
     setSearchTerm(query);
   }
   function handleSeeMore(book) {
-    setSelectedBook(book);
+    setSelectedBook(book.volumeInfo);
+  }
+  function handleCloseModal() {
+    setSelectedBook(null);
   }
 
   return (
@@ -25,8 +29,10 @@ const App = () => {
       ) : (
         <BookList books={books} onSeeMore={handleSeeMore} />
       )}
-      {selectedBook && <p>{selectedBook.volumeInfo.description}</p>}
-      {/* <BookCard books={books} /> */}
+      {selectedBook && (
+        <BookDetail book={selectedBook} onClose={handleCloseModal} />
+      )}
+      {/* if selected book is null or undefined, it is false - This is conditional rendering - instead of using ternary*/}
     </div>
   );
 };
