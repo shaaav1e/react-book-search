@@ -14,7 +14,7 @@ const SearchBar = ({ onSearch }) => {
           type="text"
           value={searchterm}
           placeholder="Search..."
-          className="rounded-full px-4 py-2 bg-white text-gray-600 focus:outline-none mt-5 sm:mt-0 mx-34 sm:mx-0"
+          className="rounded-full px-4 py-2 bg-white text-gray-600 focus:outline-none mt-5 sm:mt-0 mx-20 sm:mx-0"
           onChange={(e) => setSearchterm(e.target.value)}
         />
       </form>
