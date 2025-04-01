@@ -8,7 +8,7 @@ import BookDetail from "./components/BookDetail";
 import Footer from "./components/Footer";
 const App = () => {
   const [selectedBook, setSelectedBook] = useState(null);
-  const { books, loading, setSearchTerm } = useBooks("Python");
+  const { books, loading, setSearchTerm } = useBooks("Physics");
 
   function handleSearch(query) {
     setSearchTerm(query);

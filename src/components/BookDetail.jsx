@@ -21,7 +21,7 @@ const BookDetail = ({ book, onClose }) => {
         {/* Scrollable Content Wrapper */}
         <div className="mt-4 max-h-[60vh] overflow-y-auto p-2">
           <div className="flex flex-col md:flex-row">
-            {/* Book Thumbnail */}
+            {/* Book Thumbnail - Commented out
             {book.imageLinks?.thumbnail ? (
               <img
                 src={book.imageLinks.thumbnail}
@@ -33,6 +33,7 @@ const BookDetail = ({ book, onClose }) => {
                 <p className="text-gray-500 dark:text-gray-400">No Image</p>
               </div>
             )}
+            */}
 
             {/* Book Information */}
             <div className="flex-1">

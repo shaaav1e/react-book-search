@@ -6,7 +6,8 @@ const BookCard = ({ book, onSeeMore }) => {
     authors = ["Unknown Authors"],
     imageLinks = {},
   } = book.volumeInfo;
-  const thumbnail = imageLinks.thumbnail || "https://placehold.co/180x280";
+  const thumbnail = "https://placehold.co/180x280";
+  // imageLinks.thumbnail ||
   return (
     <div className="flex flex-col items-center justify-center px-4 py-2 bg-gray-900 text-gray-200 rounded-sm text-center mt-3 space-y-3">
       <img className="object-cover h-48" src={thumbnail} alt={title} />
