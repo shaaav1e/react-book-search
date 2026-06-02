@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { LoaderCircle } from "lucide-react";
 import Navbar from "./components/Navbar";
 import BookList from "./components/BookList";
-import BookCard from "./components/BookCard";
-import fetchBooks from "./services/api-client";
 import useBooks from "./services/useBooks";
 import BookDetail from "./components/BookDetail";
 import Footer from "./components/Footer";
 const App = () => {
   const [selectedBook, setSelectedBook] = useState(null);
-  const { books, loading, setSearchTerm } = useBooks("Physics");
+  const { books, loading, setSearchTerm } = useBooks("Web Development");
 
   function handleSearch(query) {
     setSearchTerm(query);
@@ -21,15 +20,19 @@ const App = () => {
   }
 
   return (
-    <div>
+    <div className="min-h-screen">
       <Navbar onSearch={handleSearch} />
-      {loading ? (
-        <p className="text-center font-bold text-2xl mt-5 text-white">
-          Loading...
-        </p>
-      ) : (
-        <BookList books={books} onSeeMore={handleSeeMore} />
+      {loading && (
+        <div className="fixed inset-0 z-40 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center">
+          <div className="flex flex-col items-center gap-3 rounded-2xl bg-white/90 px-6 py-5 shadow-2xl">
+            <LoaderCircle className="h-12 w-12 animate-spin text-amber-500" />
+            <p className="text-slate-700 font-semibold">Fetching books...</p>
+          </div>
+        </div>
       )}
+      <main className="mt-6">
+        <BookList books={books} onSeeMore={handleSeeMore} />
+      </main>
       {selectedBook && (
         <BookDetail book={selectedBook} onClose={handleCloseModal} />
       )}

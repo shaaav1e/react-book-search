@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "remixicon/fonts/remixicon.css";
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:wght@400;600&family=Space+Grotesk:wght@400;500;600;700&display=swap");
 /* @plugin "flowbite/plugin";
 @source "../node_modules/flowbite"; */
 
@@ -75,5 +76,19 @@
   --sidebar-ring: oklch(0.442 0.017 285.786);
 }
 body {
-  @apply bg-slate-700;
+  font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
+  background: radial-gradient(circle at 20% 20%, #1b2a3a, #0f172a 40%, #0b1120 70%);
+  color: #e5e7eb;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Newsreader", "Space Grotesk", serif;
+}
+
+#root {
+  min-height: 100vh;
 }

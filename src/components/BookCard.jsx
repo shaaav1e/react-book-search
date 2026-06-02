@@ -6,16 +6,24 @@ const BookCard = ({ book, onSeeMore }) => {
     authors = ["Unknown Authors"],
     imageLinks = {},
   } = book.volumeInfo;
-  const thumbnail = "https://placehold.co/180x280";
-  // imageLinks.thumbnail ||
+  const thumbnail = imageLinks.thumbnail || "https://placehold.co/180x280";
   return (
-    <div className="flex flex-col items-center justify-center px-4 py-2 bg-gray-900 text-gray-200 rounded-sm text-center mt-3 space-y-3">
-      <img className="object-cover h-48" src={thumbnail} alt={title} />
-      <p className="font-bold text-xl">{title}</p>
+    <div className="flex flex-col items-center justify-center px-4 py-4 bg-slate-900/80 text-gray-200 rounded-xl text-center mt-3 space-y-3 border border-white/10 shadow-lg">
+      <img
+        className="object-cover h-48 w-32 rounded-md shadow-md"
+        src={thumbnail}
+        alt={title}
+      />
+      <p className="font-semibold text-lg min-h-[3rem]">
+        {title}
+      </p>
+      <p className="text-xs text-slate-400">
+        {authors.join(", ")}
+      </p>
       <div className="flex items-center ">
         <button
           onClick={() => onSeeMore(book)}
-          className=" rounded-sm px-4 py-2 bg-slate-800 text-white hover:bg-white hover:text-slate-800 flex gap-1 items-center"
+          className="rounded-full px-4 py-2 bg-amber-300 text-slate-900 hover:bg-amber-200 flex gap-1 items-center font-semibold"
         >
           <span>Read More</span>
           <span>{/* <i className="ri-book-open-line"></i> */}</span>
