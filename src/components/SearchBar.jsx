@@ -11,19 +11,19 @@ const SearchBar = ({ onSearch }) => {
   return (
     <div>
       <form onSubmit={handleSubmit} className="flex items-center gap-3 w-full md:w-auto">
-        <div className="flex items-center gap-2 px-1 py-2 w-full md:w-[360px] border-b border-slate-500/50">
-          <Search className="h-4 w-4 text-slate-200" />
+        <div className="flex items-center gap-2 px-2 py-2 w-full md:w-[360px] border-b border-slate-300/80 focus-within:border-slate-900 transition dark:border-white/20 dark:focus-within:border-amber-200/70">
+          <Search className="h-4 w-4 text-slate-500 dark:text-slate-300" />
           <input
             type="text"
             value={searchterm}
             placeholder="Search by title, author, topic"
-            className="w-full bg-transparent text-slate-100 placeholder:text-slate-400 focus:outline-none"
+            className="w-full bg-transparent text-slate-900 placeholder:text-slate-500 focus:outline-none dark:text-white dark:placeholder:text-slate-400"
             onChange={(e) => setSearchterm(e.target.value)}
           />
         </div>
         <button
           type="submit"
-          className="rounded-full bg-amber-300 text-slate-900 px-4 py-2 font-semibold hover:bg-amber-200 shadow-sm"
+          className="btn btn-sm"
         >
           Search
         </button>

@@ -77,9 +77,14 @@
 }
 body {
   font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
+  background: radial-gradient(circle at 20% 20%, #f8fafc, #e2e8f0 45%, #c7d2fe 85%);
+  color: #0f172a;
+  min-height: 100vh;
+}
+
+.dark body {
   background: radial-gradient(circle at 20% 20%, #1b2a3a, #0f172a 40%, #0b1120 70%);
   color: #e5e7eb;
-  min-height: 100vh;
 }
 
 h1,
@@ -91,4 +96,18 @@ h4 {
 
 #root {
   min-height: 100vh;
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-full bg-white text-slate-900 font-semibold transition shadow-md hover:bg-slate-100;
+  }
+
+  .btn-sm {
+    @apply px-4 py-2 text-sm;
+  }
+
+  .btn-icon {
+    @apply inline-flex h-10 w-10 items-center justify-center rounded-full bg-white text-slate-900 shadow-md transition hover:bg-slate-100;
+  }
 }

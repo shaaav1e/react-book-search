@@ -1,3 +1,5 @@
+import { X } from "lucide-react";
+
 const BookDetail = ({ book, onClose }) => {
   if (!book) return null; // Ensures modal doesn't render if no book is selected
 
@@ -36,9 +38,9 @@ const BookDetail = ({ book, onClose }) => {
           <button
             onClick={onClose}
             className="text-slate-400 hover:text-slate-700"
+            aria-label="Close details"
           >
-            {/* ✕ */}
-            <i className="ri-close-circle-fill text-2xl"></i>
+            <X className="h-6 w-6" />
           </button>
         </div>
 
@@ -113,7 +115,7 @@ const BookDetail = ({ book, onClose }) => {
         <div className="mt-4 text-right">
           <button
             onClick={onClose}
-            className="px-5 py-2 bg-slate-900 text-white rounded-lg hover:bg-slate-800"
+            className="btn btn-sm"
           >
             Close
           </button>

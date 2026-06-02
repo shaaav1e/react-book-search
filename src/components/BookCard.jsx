@@ -8,7 +8,7 @@ const BookCard = ({ book, onSeeMore }) => {
   } = book.volumeInfo;
   const thumbnail = imageLinks.thumbnail || "https://placehold.co/180x280";
   return (
-    <div className="flex flex-col items-center justify-center px-4 py-4 bg-slate-900/80 text-gray-200 rounded-xl text-center mt-3 space-y-3 border border-white/10 shadow-lg">
+    <div className="flex flex-col items-center justify-center px-4 py-4 bg-white/80 text-slate-900 rounded-xl text-center mt-3 space-y-3 border border-slate-200 shadow-lg dark:bg-slate-900/80 dark:text-gray-200 dark:border-white/10">
       <img
         className="object-cover h-48 w-32 rounded-md shadow-md"
         src={thumbnail}
@@ -17,15 +17,15 @@ const BookCard = ({ book, onSeeMore }) => {
       <p className="font-semibold text-lg min-h-[3rem]">
         {title}
       </p>
-      <p className="text-xs text-slate-400">
+      <p className="text-xs text-slate-500 dark:text-slate-400">
         {authors.join(", ")}
       </p>
       <div className="flex items-center ">
         <button
           onClick={() => onSeeMore(book)}
-          className="rounded-full px-4 py-2 bg-amber-300 text-slate-900 hover:bg-amber-200 flex gap-1 items-center font-semibold"
+          className="btn btn-sm"
         >
-          <span>Read More</span>
+          Read More
           <span>{/* <i className="ri-book-open-line"></i> */}</span>
         </button>
       </div>
