@@ -55,7 +55,7 @@ const App = () => {
           </div>
         </div>
       )}
-      <main className="mt-6">
+      <main className="mt-6 w-[90%] md:w-[80%] mx-auto">
         <BookList books={books} onSeeMore={handleSeeMore} />
       </main>
       {selectedBook && (

@@ -10,8 +10,8 @@ const SearchBar = ({ onSearch }) => {
   }
   return (
     <div>
-      <form onSubmit={handleSubmit} className="flex items-center gap-3 w-full md:w-auto">
-        <div className="flex items-center gap-2 px-2 py-2 w-full md:w-[360px] border-b border-slate-300/80 focus-within:border-slate-900 transition dark:border-white/20 dark:focus-within:border-amber-200/70">
+      <form onSubmit={handleSubmit} className="flex w-full flex-col gap-3 sm:flex-row sm:items-center sm:w-auto">
+        <div className="flex items-center gap-2 px-2 py-2 w-full sm:w-[320px] md:w-[360px] border-b border-slate-300/80 focus-within:border-slate-900 transition dark:border-white/20 dark:focus-within:border-amber-200/70">
           <Search className="h-4 w-4 text-slate-500 dark:text-slate-300" />
           <input
             type="text"
@@ -23,7 +23,7 @@ const SearchBar = ({ onSearch }) => {
         </div>
         <button
           type="submit"
-          className="btn btn-sm"
+          className="btn btn-sm w-full sm:w-auto"
         >
           Search
         </button>

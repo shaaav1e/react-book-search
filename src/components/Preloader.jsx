@@ -31,6 +31,27 @@ const Preloader = ({ onFinish }) => {
 
       gsap.set(pages, { transformStyle: "preserve-3d" });
 
+      const flipTl = gsap.timeline({ repeat: 1, repeatDelay: 0.5 });
+      flipTl
+        .fromTo(
+          pages,
+          { rotateY: 0, z: 0 },
+          {
+            rotateY: -155,
+            z: 6,
+            duration: 0.85,
+            stagger: 0.2,
+            ease: "power2.inOut",
+          }
+        )
+        .to(pages, {
+          rotateY: 0,
+          z: 0,
+          duration: 0.85,
+          stagger: 0.2,
+          ease: "power2.inOut",
+        });
+
       const tl = gsap.timeline({
         defaults: { ease: "power2.out" },
         onComplete: handleFinish,
@@ -41,44 +62,22 @@ const Preloader = ({ onFinish }) => {
         { scale: 0.9, autoAlpha: 0 },
         { scale: 1, autoAlpha: 1, duration: 0.55, ease: "power3.out" }
       )
-        .fromTo(
-          pages,
-          { rotateY: 0, x: 0, z: 0 },
-          {
-            rotateY: -155,
-            z: 4,
-            duration: 0.45,
-            stagger: 0.12,
-            ease: "power2.inOut",
-          },
-          "+=0.1"
-        )
-        .to(pages, {
-          rotateY: 0,
-          z: 0,
-          duration: 0.45,
-          stagger: 0.12,
-          ease: "power2.inOut",
+        .add(flipTl, "+=0.25")
+        .to(bookRef.current, {
+          scale: 1.03,
+          duration: 0.75,
+          yoyo: true,
+          repeat: 1,
+          ease: "sine.inOut",
         })
-        .to(
-          bookRef.current,
-          {
-            scale: 1.03,
-            duration: 0.45,
-            yoyo: true,
-            repeat: 1,
-            ease: "sine.inOut",
-          },
-          "<"
-        )
         .to(
           containerRef.current,
           {
             yPercent: -100,
-            duration: 0.9,
+            duration: 1.35,
             ease: "power3.inOut",
           },
-          "+=0.2"
+          "+=0.6"
         );
     },
     { scope: containerRef, dependencies: [onFinish] }

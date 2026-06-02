@@ -26,7 +26,6 @@ const BookCard = ({ book, onSeeMore }) => {
           className="btn btn-sm"
         >
           Read More
-          <span>{/* <i className="ri-book-open-line"></i> */}</span>
         </button>
       </div>
     </div>
